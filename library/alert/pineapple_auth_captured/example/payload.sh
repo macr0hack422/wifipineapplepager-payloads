@@ -1,5 +1,5 @@
 #!/bin/bash
-# Title: Example Deauth Flood Alert
+# Title: Example Auth Captured Alert
 # Description: Alert human readable summary
 # Author: Hak5Darren
 # Version: 1
