@@ -85,29 +85,25 @@ To open a specific log file immediately in **Color Mode**:
 
 ### Headless Examples
 
-**1. Basic Integration**
-# === ADD THIS TO THE END OF YOUR PAYLOAD ===
+**1. Basic Integration (Standard)**
+Use this to automatically launch the viewer at the end of a script.
 
-# 1. Define the path to the Viewer Payload
-# Make sure this matches where you installed the Log Viewer!
+```bash
+# === ADD TO END OF PAYLOAD ===
 VIEWER="/root/payloads/user/general/log_viewer/payload.sh"
 
-# 2. Check if it exists, then run it
 if [ -f "$VIEWER" ]; then
-    # Arg 1: The Log File Path
-    # Arg 2: Mode (1 = Color/Parsed, 2 = Raw Text)
+    # Launch in Parsed/Color Mode (1)
     /bin/bash "$VIEWER" "$LOG_FILE" 1
-else
-    # Fallback if the viewer is missing
-    echo "Log Viewer not found. Saved to $LOG_FILE"
 fi
+```
 
 **2. Interactive Choice**
-# === ADD THIS TO THE END OF YOUR PAYLOAD ===
 
+```
+# === ADD TO END OF PAYLOAD ===
 VIEWER="/root/payloads/user/general/log_viewer/payload.sh"
 
-# Ask the user
 PROMPT "SCAN COMPLETE
 
 1. View Log Now
@@ -117,9 +113,6 @@ Press OK."
 CHOICE=$(NUMBER_PICKER "Select Option" 1)
 
 if [ "$CHOICE" -eq 1 ] && [ -f "$VIEWER" ]; then
-    # Launch Viewer in Color Mode (1)
     /bin/bash "$VIEWER" "$LOG_FILE" 1
-else
-    # Just exit cleanly
-    echo "Exiting..."
 fi
+```
