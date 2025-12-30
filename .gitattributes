@@ -1,2 +1,2 @@
 # Force LF line endings for all text files (targeting Linux systems)
-* text=auto eol=lf
+*.sh eol=lf
